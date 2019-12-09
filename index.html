@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./style/style.css" rel="stylesheet">
+    <script src="./js/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Форма для банка</h1>
+    <form>
+      <div>
+          Фамилия:
+          <input type="text" name="firstname" required>
+          Имя:
+          <input type="text" name="lastname" required>
+          Отчество:
+          <input type="text" name="firstname"  required>
+          Дата рождения:
+          <input type="date" name="lastname" required>
+      </div>
+      <div>
+          Серия паспорта:
+          <input type="text" name="firstname" required>
+          № паспорта:
+          <input type="text" name="lastname"  required>
+          Кем выдан:
+          <input type="text" name="firstname" required>
+          Дата выдачи:
+          <input type="date" name="lastname"  required>
+          Идентификационный номер:
+          <input type="text" name="firstname" required>
+      </div>
+      <div>
+          Место рождения:
+          <input type="text" name="lastname"  required>
+          Город фактического проживания:
+          <select id="cityLive" required>
+            <option></option>
+            <option>Минск</option>
+            <option>Брест</option>
+            <option>Гродно</option>
+            <option>Гомель</option>
+            <option>Витебск</option>
+          </select>      
+          Адрес фактического проживания:
+          <input type="text" name="lastname" required>
+          Телефон домашний:
+          <input type="tel" name="firstname">
+          Телефон мобильный:
+          <input type="tel" name="firstname">
+          Email:
+          <input type="email" name="lastname">
+      </div>
+      <div>
+          Mecто работы:
+          <input type="text" name="firstname">
+          Должность:
+          <input type="text" name="firstname">
+          Город прописки:
+          <select id="cityReg" required>
+            <option></option>
+            <option>Минск</option>
+            <option>Брест</option>
+            <option>Гродно</option>
+            <option>Гомель</option>
+            <option>Витебск</option>
+          </select>
+    
+          Семейное положение:
+          <select id="statusFam" required>
+            <option></option>
+            <option>Холост(Не замужем)</option>
+            <option>Женат(Замужем)</option>
+            <option>Разведен(а)</option>
+          </select>
+    
+          Гражданство:
+          <select id="national" required>
+            <option></option>
+            <option>Беларусь</option>
+            <option>Польша</option>
+            <option>Украина</option>
+          </select>
+    
+          Инвалидность:
+          <select id="inval" required>
+            <option></option>
+            <option>Нет</option>
+            <option>Да</option>
+          </select>
+    
+          Пенсионер:
+          <div id="retiree" required>
+            <input type="checkbox" name="">Нет<br>
+            <input type="checkbox" name="">Да<br>
+          </div>
+    
+          Ежемесячный доход:
+          <input type="number" min="0.00" max="any" step="0.01" id="sum">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

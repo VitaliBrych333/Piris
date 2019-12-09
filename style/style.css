@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(157, 206, 214);
+}
+
+h1 {
+    width: 300px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+form div {
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+input {
+    border-radius: 5px;
+    font-size: 18px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+select {
+    margin-right: 20px;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    margin: 0 auto;
+    width: 100px;
+    height: 50px;
+}
