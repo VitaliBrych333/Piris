@@ -33,7 +33,7 @@ select {
     border-radius: 5px;
 }
 
-input[type="submit"] {
+button[type="submit"] {
     margin: 0 auto;
     width: 100px;
     height: 50px;

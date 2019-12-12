@@ -16,7 +16,7 @@ const cors = require('cors');
 
 mongoose.connect(
   'mongodb://admin:admin2019@ds353738.mlab.com:53738/piris',
-  { useNewUrlParser: true, useFindAndModify: false},
+  { useNewUrlParser: true, useFindAndModify: true},
 );
 
 const app = express();
@@ -33,12 +33,13 @@ app.use(cors());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 
-app.use('/purchases', coastsRouter);
+app.use('/records', coastsRouter);
 app.use('/incomes', incomesRouter);
 // app.use('/authenticate', authRouter);
 // app.use('/register', regRouther);

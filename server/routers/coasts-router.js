@@ -7,6 +7,7 @@ const router = new express.Router();
 router.get(
   '/',
   asyncHandler(async (req, res) => {
+    console.log('weeeeeeeeeee')
     const items = await coastsModel.find({}).exec();
     res.json(items);
     res.end();
@@ -28,7 +29,7 @@ router.post(
   '/',
   asyncHandler(async (req, res) => {
     const content = req.body;
-
+    console.log('wwwwwwwwwwwwww', content)
     await coastsModel.create(content, (err) => {
       if (err) return console.log(err);
       res.end();
