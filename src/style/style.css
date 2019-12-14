@@ -41,4 +41,16 @@ button[type="submit"] {
     margin: 0 auto;
     width: 100px;
     height: 50px;
+    border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+a {
+  font-size: 20px;
+  margin: 20px 100px;
+  display: inline-block;
 }
