@@ -45,12 +45,12 @@ button[type="submit"] {
 }
 
 button:hover {
-  cursor: pointer;
-  background-color: red;
+    cursor: pointer;
+    background-color: red;
 }
 
 a {
-  font-size: 20px;
-  margin: 20px 100px;
-  display: inline-block;
+    font-size: 20px;
+    margin: 20px 100px;
+    display: inline-block;
 }

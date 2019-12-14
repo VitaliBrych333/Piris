@@ -1,4 +1,3 @@
-// import 'babel-polyfill';
 function checkValid() {
   let arrayField = [];
 
@@ -34,17 +33,11 @@ function checkValid() {
 }
 
 window.onload = function() {
-  alert('Страница загружена'); 
 
-  async function getRecords(e) {
+  async function getRecords() {
 
     if (checkValid()) {
-      let valueRet;
-      document.querySelectorAll('#retiree').forEach(item => {
-        if (item.checked) {
-          valueRet = item.value;
-        }
-      })
+
       const userData = {
         family: `${document.querySelector('#family').value}`,
         name: `${document.querySelector('#name').value}`,
@@ -70,14 +63,14 @@ window.onload = function() {
         statusFam: `${document.querySelector('#statusFam').value}`,
         national: `${document.querySelector('#national').value}`,
         inval: `${document.querySelector('#inval').value}`,
-        retiree: valueRet,
+        retiree: `${document.querySelector('#retiree').value}`,
         sum: `${document.querySelector('#sum').value}`,
       };
 
-      const body = JSON.stringify(userData);
-
+      const body = JSON.stringify(userData);    
+      
       return await fetch('/records', {
-        method: 'post',
+        method: 'put',
             headers: {
                   'content-type': 'application/json',
             },
@@ -87,8 +80,6 @@ window.onload = function() {
 
         return response.json();
       })
-    } else {
-      e.preventDefault();
     }    
   }
 
