@@ -1,5 +1,5 @@
 const express = require('express');
-const incomesModel = require('../models/incomes-model');
+const recordsModel = require('../models/records-model');
 const asyncHandler = require('../utils');
 
 const router = new express.Router();
@@ -7,7 +7,7 @@ const router = new express.Router();
 router.get(
   '/',
   asyncHandler(async (req, res) => {
-    const items = await incomesModel.find({}).exec();
+    const items = await recordsModel.find({}).exec();
     res.json(items);
     res.end();
   }),
@@ -17,8 +17,7 @@ router.get(
   '/:id',
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-
-    const items = await incomesModel.findById(id).exec();
+    const items = await recordsModel.findById(id).exec();
     res.json(items);
     res.end();
   }),
@@ -28,8 +27,7 @@ router.post(
   '/',
   asyncHandler(async (req, res) => {
     const content = req.body;
-
-    await incomesModel.create(content, (err) => {
+    await recordsModel.create(content, (err) => {
       if (err) return console.log(err);
       res.end();
     });
@@ -40,8 +38,7 @@ router.delete(
   '/:id',
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-
-    await incomesModel.findByIdAndDelete(id, (err, field) => {
+    await recordsModel.findByIdAndDelete(id, (err, field) => {
       if (err) return console.log(err);
       res.send(field);
     });
@@ -52,8 +49,7 @@ router.put(
   '/:id/update',
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-
-    await incomesModel.findByIdAndUpdate(id, {$set: req.body}, (err) => {
+    await recordsModel.findByIdAndUpdate(id, {$set: req.body}, (err) => {
       if (err) return console.log(err);
       res.end();
     });

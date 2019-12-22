@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Types } = mongoose.Schema;
 
-const coastsSchema = new mongoose.Schema({
+const recordsSchema = new mongoose.Schema({
     family: Types.String,
     name: Types.String,
     secondName: Types.String,
@@ -30,4 +30,4 @@ const coastsSchema = new mongoose.Schema({
     sum: Types.Number,
 });
 
-module.exports = coastsSchema;
+module.exports = recordsSchema;
