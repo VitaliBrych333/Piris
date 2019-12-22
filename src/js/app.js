@@ -26,7 +26,7 @@ function checkValid() {
   }  
   
   if (arrayField.length) {
-    alert(`Заполните поля ${arrayField.join(', ')}`)
+    alert(`Заполните поля ${arrayField.join(', ')} или введите корректные значения`)
     return false
   }
 
@@ -34,14 +34,13 @@ function checkValid() {
 }
 
 window.onload = async function() {
-  // alert('Страница загружена'); 
+
   async function records() {
     const request = await fetch('/records');
     return await request.json();
   }
 
   let data = await records()
-  console.log('dddd', `${data[1].family}`.toLowerCase());
    
   async function getRecords(e) {
 
@@ -85,14 +84,14 @@ window.onload = async function() {
       function checkData(data, userData) {
         let count = 0;
         data.forEach((item, index) => {
-          console.log('fff', `${data[index].name}`.toLowerCase() === userData.name.toLowerCase())
+
           if ((`${data[index].name}`.toLowerCase() === userData.name.toLowerCase())
                 && (`${data[index].family}`.toLowerCase() === userData.family.toLowerCase())
                 && (`${data[index].secondName}`.toLowerCase() === userData.secondName.toLowerCase())
               ) {
                   count = 1;
 
-                } else if (`${data[index].seriaPasp}`.toLowerCase() === userData.seriaPasp.toLowerCase()) {
+                } else if (`${data[index].numPasp}`.toLowerCase() === userData.numPasp.toLowerCase()) {
                   count = 2;
             
                 } else if(`${data[index].idPasp}`.toLowerCase() === userData.idPasp.toLowerCase()) {
@@ -101,8 +100,7 @@ window.onload = async function() {
                 } else if(/[0-9]/.test(userData.family)) {
                   count = 4;
             
-                } else if (!userData.family.trim()) {
-                  console.log('ddddddddd', userData.family.trim(), !userData.family.trim())
+                } else if (!userData.family.trim() || !userData.name.trim() || !userData.secondName.trim()) {
                   count = 5
                 } 
         })
@@ -113,7 +111,7 @@ window.onload = async function() {
               alert('Пользователь уже существует!!!');
               break;
             case 2:
-              alert('Серия паспорта уже существует!!!');
+              alert('Номер паспорта уже существует!!!');
               break;
             case 3:
               alert('Идентификационный номер уже существует!!!');
@@ -122,7 +120,7 @@ window.onload = async function() {
               alert('Фамилия не должна быть с цифрами!!!');
               break;
             case 5:
-              alert('Фамилия не должна быть пустой или содержать только пробел!!!');
+              alert('Фамилия, Имя или Отчество не должны быть пустыми или содержать только пробел!!!');
               break;
             default:
               break;
@@ -159,42 +157,3 @@ window.onload = async function() {
 
   document.querySelector("button[type='submit']").addEventListener('click', getRecords);
 }
-  
-
-
-
-
-// return getRecords().then(dataDB => {
-//   console.log('fffffffffffffffff')
-//   dataDB.forEach(item => {
-//     if ((item.name.toUpperCase() === userData.name.toUppercase())
-//          && (item.family.toUpperCase() === userData.family.toUppercase())
-//          && (item.secondName.toUpperCase() === user.secondName.toUppercase())
-//        ) {
-//          alert('Пользователь уже существует!!!')
-//          e.preventDefault();
-//          return false
-
-//        } else if (item.seriaPasp.toUppercase() === userData.seriaPasp.toUpperCase()) {
-//           alert('Серия паспорта уже существует!!!')
-//           e.preventDefault();
-//           return false;
-
-//        } else if(item.idPasp.toUppercase() === userData.idPasp.toUpperCase()) {
-//           alert('Идентификационный номер уже существует!!!')
-//           e.preventDefault();
-//           return false;
-
-//        } else if(/[0-9]/.test(userData.family)) {
-//           alert('Фамилия не должна быть с цифрами!!!')
-//           e.preventDefault();
-//           return false;
-
-//        } else if (userData.family.trim()) {
-//           alert('Фамилия не должна быть пустой или содержать только пробел!!!');
-//           e.preventDefault();
-//           return false;
-//        } 
-        
-//        return true
-//   })
